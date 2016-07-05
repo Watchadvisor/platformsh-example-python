@@ -1,0 +1,12 @@
+name: app
+type: python:3.5
+
+dependencies:
+    python:
+       gunicorn: "*"
+
+web:
+    commands:
+       start: "gunicorn -w 4 -b unix:$SOCKET app:app"
+
+disk: 512
