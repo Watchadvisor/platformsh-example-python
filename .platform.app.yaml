@@ -16,6 +16,11 @@ dependencies:
 
 # The configuration of app when it is exposed to the web.
 web:
+    upstream:
+        # Send requests to the app server through a unix socket, whose location
+        # will be defined in an environment variable named SOCKET.
+        socket_family: "unix"
+
     # Commands are run once after deployment to start the application process.
     commands:
        start: "gunicorn -w 4 -b unix:$SOCKET app:app"
