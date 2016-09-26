@@ -6,6 +6,8 @@ dependencies:
        uwsgi: "*"
 
 web:
+    upstream:
+        socket_family: "unix"
     commands:
        start: "uwsgi --ini conf/uwsgi.ini"
 
